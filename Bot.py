@@ -15,28 +15,33 @@ def perseet(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="VEDETÄÄN PERSEET")
 
 
+def itisknown(bot, update, args):
+    bot.send_message(chat_id=update.message.chat_id, text="it is known")
+
+
+
 def paatyyn(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="päätyyn")
 
 
 def plussaks(bot, update, args):
-
-    text = ""
-
-    for arg in args:
-        text += "\n"
-        text += plusplus.toPlus(arg)
+    if len(args) != 0:
+        text = plusplus.toPlus(" ".join(args))
+    else:
+        text = "Ei plussia annettu?????"
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
 
 def plussasta(bot, update, args):
+    if len(args) != 0:
+        text = " ".join(args)
 
-    text = ""
+        print(text)
 
-    for arg in args:
-        text += "\n"
-        text += plusplus.fromPlus(arg)
+        text = plusplus.fromPlus(text)
+    else:
+        text = "/saukko@saukkobot"
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
@@ -45,7 +50,7 @@ def helper(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="lol joku help")
 
 
-token = os.environ["TOKEN"]
+token = os.getenv("TOKEN")
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -58,9 +63,17 @@ handlers = {
     'help': helper,
     'mitatanaantehdaan': perseet,
     'mitatehdaantanaan': perseet,
+    'mitatehaan': perseet,
+    'perseet': itisknown,
     'päätyyn': paatyyn,
+    'paatyyn': paatyyn,
     'plussaks': plussaks,
-    'plussasta': plussasta
+    'plussaksi': plussaks,
+    'plussast': plussasta,
+    'plussasta': plussasta,
+    'pää tyynyyn': paatyyn,
+    'paatyynyyn': paatyyn
+
 }
 
 for key, value in handlers.items():

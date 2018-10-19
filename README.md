@@ -2,7 +2,8 @@ This project uses [pipenv](https://github.com/pypa/pipenv) and [python-telegram-
 
 This is a very basic bot that responds to simple messages.
 
-Note that you need to have your Bot token set as TOKEN environment variable.
+Note that you need to have your Bot token set in a .env file.
+
 
 Installation:
 ```
