@@ -1,4 +1,5 @@
 import os
+import random
 
 from telegram.ext import Updater
 import logging
@@ -15,12 +16,43 @@ def perseet(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="VEDETÄÄN PERSEET")
 
 
-def itisknown(bot, update, args):
-    bot.send_message(chat_id=update.message.chat_id, text="it is known")
+def rare(bot, update, args):
+    bot.send_message(chat_id=update.message.chat_id, text="Nyt vedetään jussia")
+
+
+def kolikko(bot, update, args):
+    if random.randint(1, 2) == 1:
+        bot.send_message(chat_id=update.message.chat_id, text="Kruunalla PERSEET")
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text="Klaavalla Xanax baariin")
+
+
+def tanaan(bot, update, args):
+    if random.randint(0, 69) == 2:
+        rare(bot, update, args)
+    else:
+        r = random.randint(0, 8)
+
+        if r <= 4 or r == 8:
+            perseet(bot, update, args)
+        if r == 5:
+            paatyyn(bot, update, args)
+        if r == 6:
+            paatyynyyn(bot, update, args)
+        if r == 7:
+            saukko(bot, update, args)
+
+
+def saukko(bot, update, args):
+    bot.send_message(chat_id=update.message.chat_id, text="/saukko@saukkobot")
 
 
 def paatyyn(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="päätyyn")
+
+
+def paatyynyyn(bot, update, args):
+    bot.send_message(chat_id=update.message.chat_id, text="ai pää tyynyyn vai? lol, hyvä vitsi. vois vetää PERSEET")
 
 
 def plussaks(bot, update, args):
@@ -56,22 +88,16 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
-
 handlers = {
     'start': start,
     'help': helper,
-    'mitatanaantehdaan': perseet,
-    'mitatehdaantanaan': perseet,
-    'mitatehaan': perseet,
-    'perseet': itisknown,
-    'päätyyn': paatyyn,
-    'paatyyn': paatyyn,
     'plussaks': plussaks,
     'plussaksi': plussaks,
     'plussast': plussasta,
     'plussasta': plussasta,
-    'pää tyynyyn': paatyyn,
-    'paatyynyyn': paatyyn
+    'tanaan': tanaan,
+    'kolikko': kolikko,
+    'heitakolikkoa': kolikko
 
 }
 
@@ -79,7 +105,6 @@ for key, value in handlers.items():
     handler = CommandHandler(key, value, pass_args=True)
     dispatcher.add_handler(handler)
     print("Added handler for", key)
-
 
 print("Starting polling")
 updater.start_polling()
