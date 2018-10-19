@@ -1,3 +1,5 @@
+# Author falarikae
+
 from string import ascii_lowercase as asl
 
 asl = ''.join((' ', asl, 'åäö'))
@@ -13,4 +15,3 @@ def toPlus(str):
     arr = ['+' * (asl.find(i.lower()) + 1) for i in str]
     out = ' '.join(arr)
     return out
-

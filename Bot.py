@@ -19,7 +19,6 @@ def itisknown(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="it is known")
 
 
-
 def paatyyn(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="päätyyn")
 
@@ -28,7 +27,7 @@ def plussaks(bot, update, args):
     if len(args) != 0:
         text = plusplus.toPlus(" ".join(args))
     else:
-        text = "Ei plussia annettu?????"
+        text = "Ei plussia annettu????? wtf"
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
@@ -36,10 +35,10 @@ def plussaks(bot, update, args):
 def plussasta(bot, update, args):
     if len(args) != 0:
         text = " ".join(args)
-
-        print(text)
-
-        text = plusplus.fromPlus(text)
+        try:
+            text = plusplus.fromPlus(text)
+        except Exception as e:
+            text = "opettele kirjottaa vitun pelle"
     else:
         text = "/saukko@saukkobot"
 
