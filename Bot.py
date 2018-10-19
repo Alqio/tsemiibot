@@ -8,7 +8,7 @@ import plusplus
 
 
 def start(bot, update, args):
-    bot.send_message(chat_id=update.message.chat_id, text="vedetään perseet.")
+    bot.send_message(chat_id=update.message.chat_id, text="kiitos ryhmään pääsystä. nyt vedetään perseet.")
 
 
 def perseet(bot, update, args):
