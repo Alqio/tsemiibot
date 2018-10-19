@@ -8,6 +8,26 @@ from telegram.ext import CommandHandler
 import plusplus
 
 
+baarit = [
+    'Xanax baariin',
+    'SEON baariin',
+    'viinaa',
+    'PERSEET',
+    'kellariin',
+    'finishaa c++ projekti',
+    'pirjo 50v juhliin',
+    'OPN:n metsäbileeeeet',
+    'Esson baariin',
+    'krokee',
+    'raketoimaan',
+    'PERSEET',
+    'VETÄMÄÄN PERSEET',
+    'Vätköille',
+    'aamutakkisillikselle',
+    ':D',
+]
+
+
 def start(bot, update, args):
     bot.send_message(chat_id=update.message.chat_id, text="kiitos ryhmään pääsystä. nyt vedetään perseet.")
 
@@ -24,16 +44,19 @@ def kolikko(bot, update, args):
     if random.randint(1, 2) == 1:
         bot.send_message(chat_id=update.message.chat_id, text="Kruunalla PERSEET")
     else:
-        bot.send_message(chat_id=update.message.chat_id, text="Klaavalla Xanax baariin")
+
+        lause = random.choice(baarit)
+
+        bot.send_message(chat_id=update.message.chat_id, text="Klaavalla " + lause)
 
 
 def tanaan(bot, update, args):
-    if random.randint(0, 69) == 2:
+    if random.randint(-69, 69) == 2:
         rare(bot, update, args)
     else:
         r = random.randint(0, 8)
 
-        if r <= 4 or r == 8:
+        if r <= 4:
             perseet(bot, update, args)
         if r == 5:
             paatyyn(bot, update, args)
@@ -41,6 +64,8 @@ def tanaan(bot, update, args):
             paatyynyyn(bot, update, args)
         if r == 7:
             saukko(bot, update, args)
+        if r == 8:
+            kolikko(bot, update, args)
 
 
 def saukko(bot, update, args):
