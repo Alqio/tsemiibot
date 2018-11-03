@@ -9,22 +9,15 @@ import plusplus
 
 
 baarit = [
-    'Xanax baariin',
-    'SEON baariin',
-    'viinaa',
-    'PERSEET',
-    'kellariin',
-    'finishaa c++ projekti',
-    'pirjo 50v juhliin',
-    'OPN:n metsäbileeeeet',
-    'Esson baariin',
-    'krokee',
-    'raketoimaan',
-    'PERSEET',
+    'Mennään Xanax baariin',
+    'Lähetään SEON baariin',
+    'vedetään viinaa',
+    'VEDETÄÄN PERSEET',
+    'vois mennä finishaa c++ projekti',
+    'vetemään perseet pirjo 50v juhlissa',
     'VETÄMÄÄN PERSEET',
     'Vätköille',
-    'aamutakkisillikselle',
-    ':D',
+    'pakko mennä aamutakkisillikselle',
 ]
 
 
@@ -42,12 +35,16 @@ def rare(bot, update, args):
 
 def kolikko(bot, update, args):
     if random.randint(1, 2) == 1:
-        bot.send_message(chat_id=update.message.chat_id, text="Kruunalla PERSEET")
+        bot.send_message(chat_id=update.message.chat_id, text="Heitettiin kolikkoa ja saatiin KRUUNA.Eli VEDETÄÄNKÖ PERSEET")
     else:
 
         lause = random.choice(baarit)
+        s = "Heitettiin kolikkoa ja saatiin KLAAVA. Eli " + lause
 
-        bot.send_message(chat_id=update.message.chat_id, text="Klaavalla " + lause)
+        if random.randint(0, 8) == 2:
+           s = plusplus.toPlus(s)
+
+        bot.send_message(chat_id=update.message.chat_id, text=s)
 
 
 def tanaan(bot, update, args):
@@ -62,10 +59,8 @@ def tanaan(bot, update, args):
             paatyyn(bot, update, args)
         if r == 6:
             paatyynyyn(bot, update, args)
-        if r == 7:
+        if r == 8 or r == 7:
             saukko(bot, update, args)
-        if r == 8:
-            kolikko(bot, update, args)
 
 
 def saukko(bot, update, args):
