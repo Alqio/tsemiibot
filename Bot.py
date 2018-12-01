@@ -35,11 +35,11 @@ def rare(bot, update, args):
 
 def kolikko(bot, update, args):
     if random.randint(1, 2) == 1:
-        bot.send_message(chat_id=update.message.chat_id, text="Heitettiin kolikkoa ja saatiin KRUUNA.Eli VEDETÄÄNKÖ PERSEET")
+        bot.send_message(chat_id=update.message.chat_id, text="Heitettin KRUUNA. Eli VEDETÄÄNKÖ PERSEET")
     else:
 
         lause = random.choice(baarit)
-        s = "Heitettiin kolikkoa ja saatiin KLAAVA. Eli " + lause
+        s = "Heitettiin KLAAVA. Eli " + lause
 
         if random.randint(0, 8) == 2:
            s = plusplus.toPlus(s)
